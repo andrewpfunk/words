@@ -9,11 +9,18 @@ fetch('words.txt')
     
     document.getElementById("changeOneButton").addEventListener("click", () => {
       const inputWord = document.getElementById("wordInput").value.trim().toLowerCase();
-      if (wordSet.has(inputWord)) {
-        document.getElementById("resultSpan").innerText = `"${inputWord}" is a valid word!`;
-      } else {
-        document.getElementById("resultSpan").innerText = `"${inputWord}" is not a valid word.`;
-      }
+      const wordlist = [];
+      for (let i = 0; i < inputWord.length; i++) {
+        for (let c = 97; c <= 122; c++) { // a-z
+          const newWord = inputWord.slice(0, i) + String.fromCharCode(c) + inputWord.slice(i + 1);
+          if (newWord !== inputWord) {
+            if (wordSet.has(newWord)) {
+              wordlist.push(newWord);
+            }
+          }
+        }
+      }      
+      document.getElementById("resultSpan").innerText = wordlist.join('\n');      
     }); 
     
   });
