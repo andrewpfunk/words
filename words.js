@@ -1,2 +1,2 @@
 
-document.getElementById("word").innerText = "Loading...Done!";
+document.getElementById("statusSpan").innerText = "Loading...Done!";
