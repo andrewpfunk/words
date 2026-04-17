@@ -8,6 +8,7 @@ Retrieved 2026-04-10, License - CC BY-SA 4.0
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%221em%22 font-size=%2280%22>🔤</text></svg>">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="words.js"></script>
 </head>
 <body>
     <span id="statusSpan">Loading words.txt...</span>
@@ -17,25 +18,34 @@ Retrieved 2026-04-10, License - CC BY-SA 4.0
         <input type="text" id="wordInput" style="font-family: monospace, monospace;">        
     </p>
     
-    <button id="changeOneButton">~1</button>
+    <p>
+        <button id="changeOneButton">~1</button>
+        <button id="changeOneAddOneButton">~1,+1</button>
+        <button id="removeOneChangeOneButton">-1,~1</button>
+        <button id="addOneRemoveOneButton">+1,-1</button>
+        <button id="changeOneAddOneRemoveOneButton">~1,+1,-1</button>
+        <button id="changeTwoButton">~2</button>
+        <button id="addTwoButton">+2</button>
+        <button id="removeTwoButton">-2</button>
+        <button id="addThreeButton">+3</button>
+        <button id="removeThreeButton">-3</button>
+    </p>
+    <p>
+        <button id="saveButton">💾 ➔</button>
+    </p>
 
-    <button id="changeOneAddOneButton">~1,+1</button>
+    <div style="display: flex">
+    <div style="flex: 1">
+        <pre><span id="newWordsSpan"></span></pre>
+    </div>
+    <div style="flex: 1">
+        <pre><span id="matchingWordsSpan"></span></pre>   
+    </div>
+    <div style="flex: 1">
+        <pre><span id="savedWordsSpan"></span></pre>
+    </div>
+    </div>
 
-    <button id="removeOneChangeOneButton">-1,~1</button>
-
-    <button id="addOneRemoveOneButton">+1,-1</button>
-
-    <button id="changeTwoButton">~2</button>
-
-    <button id="addTwoButton">+2</button>
-
-    <button id="removeTwoButton">-2</button>
-
-    <button id="addThreeButton">+3</button>
-
-    <pre><span id="resultSpan">        
-    </span></pre>
-
-    <script src="words.js"></script>
+    <script>const words = new Words();</script>
 </body>
 </html>
