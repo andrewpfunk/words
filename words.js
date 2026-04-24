@@ -60,7 +60,7 @@ class Words {
       this.updateNewWords(newWordSet);
     });
 
-    document.getElementById("removeOneChangeOneButton").addEventListener("click", () => { 
+    document.getElementById("changeOneRemoveOneButton").addEventListener("click", () => { 
       const inputWord = document.getElementById("wordInput").value.trim().toLowerCase();
       const newWordSet = new Set();   
       for (let i = 0; i < inputWord.length; i++) {
@@ -265,7 +265,7 @@ class Words {
   }
 
   displaySavedWords = () => {        
-    document.getElementById("savedWordsSpan").innerText = Array.from(this.#savedWords).join('\n');    
+    document.getElementById("savedWordsSpan").innerText = Array.from(this.#savedWords).sort().join('\n');    
   }
 
   isSavedWord = (word) => {    
