@@ -131,6 +131,61 @@ class Words {
       this.updateNewWords(newWordSet);   
     });
 
+    document.getElementById("changeOneAddTwoButton").addEventListener("click", () => {
+      const inputWord = document.getElementById("wordInput").value.trim().toLowerCase();
+      const newWordSet = new Set();   
+
+      for (let i = 0; i < inputWord.length; i++) {
+        for (let c1 = 97; c1 <= 122; c1++) { // a-z
+          const intermediateWord = inputWord.slice(0, i) + String.fromCharCode(c1) + inputWord.slice(i + 1);
+
+          for (let j = 0; j <= intermediateWord.length; j++) {
+            for (let c2 = 97; c2 <= 122; c2++) { // a-z
+              const intermediateWord2 = intermediateWord.slice(0, j) + String.fromCharCode(c2) + intermediateWord.slice(j);
+
+              for (let k = 0; k <= intermediateWord2.length; k++) {
+                for (let c3 = 97; c3 <= 122; c3++) { // a-z
+                  const newWord = intermediateWord2.slice(0, k) + String.fromCharCode(c3) + intermediateWord2.slice(k);
+
+                  if (newWord !== inputWord) {
+                    if (this.isValidWord(newWord)) {
+                      newWordSet.add(newWord);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }      
+      }
+      this.updateNewWords(newWordSet);   
+    });
+
+    document.getElementById("changeOneRemoveTwoButton").addEventListener("click", () => {
+      const inputWord = document.getElementById("wordInput").value.trim().toLowerCase();
+      const newWordSet = new Set();   
+
+      for (let i = 0; i < inputWord.length; i++) {
+        const intermediateWord1 = inputWord.slice(0, i) + inputWord.slice(i + 1);
+
+        for (let j = 0; j < intermediateWord1.length; j++) {
+          const intermediateWord2 = intermediateWord1.slice(0, j) + intermediateWord1.slice(j + 1);     
+
+          for (let k = 0; k < intermediateWord2.length; k++) {
+            for (let c = 97; c <= 122; c++) { // a-z
+              const newWord = intermediateWord2.slice(0, k) + String.fromCharCode(c) + intermediateWord2.slice(k + 1);
+              if (newWord !== inputWord) {
+                if (this.isValidWord(newWord)) {
+                  newWordSet.add(newWord);
+                }
+              }
+            }
+          }
+        }
+      }      
+      this.updateNewWords(newWordSet);   
+    });
+
     document.getElementById("changeTwoButton").addEventListener("click", () => {
       const inputWord = document.getElementById("wordInput").value.trim().toLowerCase();
       const newWordSet = new Set();   
