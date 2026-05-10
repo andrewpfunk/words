@@ -38,6 +38,22 @@ class Words {
       this.updateNewWords(newWordSet);
     }); 
 
+    document.getElementById("addOneButton").addEventListener("click", () => {
+      const inputWord = document.getElementById("wordInput").value.trim().toLowerCase();
+      const newWordSet = new Set();   
+      for (let i = 0; i <= inputWord.length; i++) {
+        for (let c = 97; c <= 122; c++) { // a-z
+          const newWord = inputWord.slice(0, i) + String.fromCharCode(c) + inputWord.slice(i);
+          if (newWord !== inputWord) {
+            if (this.isValidWord(newWord)) {
+              newWordSet.add(newWord);
+            }
+          }
+        }
+      }      
+      this.updateNewWords(newWordSet);   
+    });
+
     document.getElementById("changeOneAddOneButton").addEventListener("click", () => {
       const inputWord = document.getElementById("wordInput").value.trim().toLowerCase();
       const newWordSet = new Set();   
