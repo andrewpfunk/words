@@ -1,0 +1,23 @@
+{
+  "name": "words",
+  "version": "1.0.0",
+  "description": "Search for words by given criteria",
+  "main": "words.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrewpfunk/words.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/andrewpfunk/words/issues"
+  },
+  "homepage": "https://github.com/andrewpfunk/words#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.61.1",
+    "@types/node": "^26.0.1"
+  }
+}
